@@ -3,20 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       
+       * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        
+        section {
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+            background-color: rgb(228, 224, 225); 
+            font-family: "Inter", sans-serif; 
+        }
+
+     
+        .container {
+            width: 90%; 
+            max-width: 500px; 
+            padding: 20px;
+            border-radius: 30px; 
+            box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+            background-color: rgb(214, 192, 179); 
+        }
+
+    
+        form {
+            display: flex;
+            flex-direction: column; 
+        }
+
+       
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(73, 54, 40); 
+        } 
+
+        input {
+            padding: 10px 5px 10px 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; 
+            outline: none; 
+            font-family: "Inter", sans-serif; 
+            border-radius: 10px; 
+        }
+
+        input:focus {
+            background-color: white;
+            border: 2px solid rgb(73, 54, 40); 
+        }
+
+       button {
+            padding: 12px 20px; 
+            font-family: "Kufam", sans-serif;
+            font-size: 16px; 
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(73, 54, 40); 
+            color: #FFFDF6;
+            transition: background-color .3s ease, color .3s ease; 
+            cursor: pointer; 
+        }
+
+    
+        button:hover {
+            background-color: #FFFDF6; 
+            color: rgb(73, 54, 40); 
+        }
+        
+        #msg {
+            margin-top: 25px;
+            color: rgb(73, 54, 40); 
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold; 
+        }
       
     </style>
 </head>
 <body>
 
-    <h1>Task3</h1>
+     <section>
+        <div class="container">
+            <form id="form">
+                <h1>What Is Your Favorite day?</h1>
+
+                <input type="text" id="dayName" placeholder="Enter Day(ex:Friday)">
+
+                <button id="submitBtn" type="submit">Check <i class="fa-solid fa-check"></i></button>
+            </form>
+
+           <p id="msg"></p>
+        </div>
+    </section>
   
 
     <script>
-        
+
+        let dayNameInput = document.getElementById("dayName");
+        let submitBtn = document.getElementById("submitBtn");
+        let msg = document.getElementById("msg");
+
+        submitBtn.addEventListener('click', function (event) {
+           
+            event.preventDefault();
+
+            let dayName = dayNameInput.value.trim();
+
+             
+            if(dayName === ""){
+
+                 msg.textContent = "Please enter a day.";
+
+                 return;
+                
+            }
+
+            switch(dayName){
+                 
+                case 'Friday':
+                msg.textContent = "It's Friday, have a blessed day!";
+                break;
+
+                case 'Saturday':
+                case 'Sunday':    
+                msg.textContent = "Weekend vibes! Start your week fresh.";
+                break;
+
+                case 'Monday':
+                msg.textContent = "It's Monday! Time to conquer the week";
+                break;
+
+                case 'Tuesday':
+                msg.textContent = "Terrific Tuesday! Keep up the great work.";
+                break;
+
+                case 'Wednesday':
+                msg.textContent = "Happy Hump Day! You're halfway through the week.";
+                break;
+
+                case 'Thursday':
+                msg.textContent = "Almost there! Thursday is the new Friday eve.";
+                break;
+
+                 default:
+                msg.textContent = "";
+                return;
+            }
+          
+
+        });
     </script>
     
 </body>
