@@ -113,55 +113,50 @@
         let submitBtn = document.getElementById("submitBtn");
         let msg = document.getElementById("msg");
 
-        submitBtn.addEventListener('click', function (event) {
-           
-            event.preventDefault();
 
-            let dayName = dayNameInput.value.trim();
+    submitBtn.addEventListener('click', function (event) {
 
-             
-            if(dayName === ""){
+    event.preventDefault();
 
-                 msg.textContent = "Please enter a day.";
+    let dayName = dayNameInput.value.trim().toLowerCase(); 
 
-                 return;
-                
-            }
+    if(dayName === ""){
+        msg.textContent = "Please enter a day.";
+        return;
+    }
 
-            switch(dayName){
-                 
-                case 'Friday':
-                msg.textContent = "It's Friday, have a blessed day!";
-                break;
+    switch(dayName){
+        case 'friday': 
+            msg.textContent = "It's Friday, have a blessed day!";
+            break;
 
-                case 'Saturday':
-                case 'Sunday':    
-                msg.textContent = "Weekend vibes! Start your week fresh.";
-                break;
+        case 'saturday':
+        case 'sunday':    
+            msg.textContent = "Weekend vibes! Start your week fresh.";
+            break;
 
-                case 'Monday':
-                msg.textContent = "It's Monday! Time to conquer the week";
-                break;
+        case 'monday':
+            msg.textContent = "It's Monday! Time to conquer the week";
+            break;
 
-                case 'Tuesday':
-                msg.textContent = "Terrific Tuesday! Keep up the great work.";
-                break;
+        case 'tuesday':
+            msg.textContent = "Terrific Tuesday! Keep up the great work.";
+            break;
 
-                case 'Wednesday':
-                msg.textContent = "Happy Hump Day! You're halfway through the week.";
-                break;
+        case 'wednesday':
+            msg.textContent = "Happy Hump Day! You're halfway through the week.";
+            break;
 
-                case 'Thursday':
-                msg.textContent = "Almost there! Thursday is the new Friday eve.";
-                break;
+        case 'thursday':
+            msg.textContent = "Almost there! Thursday is the new Friday eve.";
+            break;
 
-                 default:
-                msg.textContent = "";
-                return;
-            }
-          
+        default:
+            msg.textContent = "Invalid day. Please register on a valid day of the week!";
+            return;
+    }
+});
 
-        });
     </script>
     
 </body>
