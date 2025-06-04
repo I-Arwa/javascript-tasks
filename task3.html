@@ -110,11 +110,11 @@
     <script>
 
         let dayNameInput = document.getElementById("dayName");
-        let submitBtn = document.getElementById("submitBtn");
-        let msg = document.getElementById("msg");
+let submitBtn = document.getElementById("submitBtn");
+let msg = document.getElementById("msg");
 
 
-    submitBtn.addEventListener('click', function (event) {
+submitBtn.addEventListener('click', function (event) {
 
     event.preventDefault();
 
@@ -131,7 +131,7 @@
             break;
 
         case 'saturday':
-        case 'sunday':    
+        case 'sunday':     
             msg.textContent = "Weekend vibes! Start your week fresh.";
             break;
 
@@ -155,10 +155,7 @@
             msg.textContent = "Invalid day. Please register on a valid day of the week!";
             return;
     }
-
-    
 });
-
     </script>
     
 </body>
