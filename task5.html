@@ -102,14 +102,14 @@
             }
 
             @media (max-width: 992px) {
-       .products-cards {
+       #products-cards {
         grid-template-columns: repeat(2, 1fr); 
        }
       }
 
     
       @media (max-width: 768px) {
-       .products-cards {
+       #products-cards {
         grid-template-columns: 1fr;
        }
       }
@@ -162,6 +162,7 @@ let filterBtn = document.getElementById("filterBtn");
 
 let containerDiv = document.getElementById("products-cards");
 
+// Array of product objects, each with a name and a price
 let products = [
     { name: "product 1", price: 50 },
     { name: "product 2", price: 150 },
@@ -169,10 +170,11 @@ let products = [
     { name: "product 4", price: 200 },
 ];
 
+// Add an event listener to the filter button for click events
 filterBtn.addEventListener('click', function(event){
 
   
-   
+   // Check if the input field is empty
   if(input.value === ""){
      alert("You must enter a price to filter!");
         return;
@@ -182,29 +184,32 @@ filterBtn.addEventListener('click', function(event){
 else{
 
    let inputNumber = Number(input.value);
-
+ // Call the filterNumber function with the input number
  filterNumber(inputNumber);
 
 }
 
-
+ // Clear the input field after filtering
 input.value = "";
 
 })
 
 
-
+//Filters the products array based on a given price.
 function filterNumber(filterPrice){
 
- const result = products.filter((products) => products.price <= filterPrice);
+// Use the filter method to get products with a price less than or equal to filterPrice
+ const result = products.filter((product) => product.price <= filterPrice);
+ // Call displayData to render the filtered products
  displayData(result);
 }
 
-
+// Displays the filtered product data in the containerDiv.
 function displayData(filteredPrice){
 
   containerDiv.innerHTML = "";
-
+  
+  // If no products match the filter, display an error message
   if(filteredPrice.length === 0){
    
     containerDiv.innerHTML = `<div id="error">No matching products found!</div>`;

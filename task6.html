@@ -79,7 +79,7 @@
            
             /* Media queries for responsiveness */
             @media (max-width: 768px) {
-              .products-cards {
+              #products-cards {
                 grid-template-columns: repeat(1, 1fr); 
               }
             }
@@ -101,16 +101,21 @@
 
 
     <script>
+
        let productsDiv = document.getElementById("products-cards");
 
+       // Define the tax rate It's (14%).
        const taxRate = 0.14;
        
+       // Array of product objects. Each object has a name and a price.
        let products =[
         {name:"product 1" , price:50},
         {name:"product 2" , price:100},
         {name:"product 3" , price:200},
       ];
 
+
+      // Function to display the product data on the webpage.
       function displayData(){
         productsDiv.innerHTML = '';
 
@@ -122,7 +127,7 @@
 
         productCard.innerHTML = `
 
-         <h3>${products.name}</h3>
+         <h3>${product.name}</h3>
          <p>Original price: ${product.price.toFixed(2)} pounds</p>
          <p>Price after tax: <span>${ (product.price * (1 + taxRate)).toFixed(2)} EGP</span> </p>
         `;
@@ -133,6 +138,8 @@
 
       }
 
+
+      // Call the displayData function to render the products when the page loads.
         displayData();
     </script>
 </body>
