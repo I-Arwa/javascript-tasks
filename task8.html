@@ -35,13 +35,13 @@
             }
              h1 {
               margin-bottom: 20px;
-              color:rgb(162, 148, 249); 
+              color:rgb(124, 69, 133); 
               font-size: 30px;
              text-align: center;
             } 
 
             .sec-header{
-                background-color: rgb(162, 148, 249);
+                background-color:rgb(124, 69, 133);
                 color:rgb(245, 239, 255) ;
                 position: relative;
                 padding: 15px 25px;
@@ -152,12 +152,7 @@ function calculatePages(){
 for (const categoryName in library){
     
     const booksIncategoryName = library[categoryName];
-    console.log(booksIncategoryName)
-
     let totalPages = booksIncategoryName.reduce((accumulator, book) => accumulator + book.pages,0);
-
-    console.log(totalPages)
-
     grandTotalPages += totalPages;
 }
 
@@ -227,64 +222,6 @@ displaydata()
 
 
 
-
-
-
-/*
-function calculatePages(){
- let totalPages = Object.values(library).flat().reduce((accumulator, currentValue) => accumulator + currentValue.pages,0);
-return totalPages;
-}
-
-
-function diplayData(){
-
-    libraryContainer.innerHTML ='';
-
-
-    Object.entries(library).forEach(([categoryName, categoryArray]) =>{
-
-    let header = document.createElement("div");
-
-    header.className = "sec-header";
-    header.innerHTML =`${categoryName}`;
-
-
-    let bookSections = document.createElement("div");
-    bookSections.className = "books-sections";
-    
-
-
-        categoryArray.forEach(book=>{
-
-            let bookSection = document.createElement("div");
-            bookSection.className = "books-section";
-            bookSection.innerHTML = `
-
-            <h3>${book.title}</h3>
-            <p>Author: ${book.author}</p>
-            <p>Pages: ${book.pages}</p>
-            `;
-
-
-            bookSections.appendChild(bookSection)
-
-
-        })
-
-
-        libraryContainer.appendChild( header);
-        libraryContainer.appendChild( bookSections);
-
-
-    });
-
-containerPages.textContent =`Total Pages ${calculatePages()}`
-}
-
-
-diplayData();
-*/
 
     </script>
 </body>
