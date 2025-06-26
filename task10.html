@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <style>
+        
+
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(124, 69, 133);
+    margin-bottom: 25px;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+     background-color: rgb(124, 69, 133);
+    color: rgb(245, 239, 255);
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: rgb(235, 229, 245); 
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid rgb(124, 69, 133);
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: rgb(124, 69, 133);
+}
+
+#userForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+#userForm input[type="text"],
+#userForm input[type="number"],
+#userForm input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#userForm button {
+   background-color: rgba(190, 175, 205, 0.892);
+    color: rgb(127, 85, 177);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#userForm button:hover {
+    background-color: rgba(186, 160, 210, 0.892);
+}
+
+
+#delete {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(179, 65, 107, 0.859);
+     color: rgb(245, 239, 255);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+     </style>
+</head>
+<body>
+    
+    <section>
+        <div class="container">
+            <h1>User Table</h1>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>E-mail</th>
+                        <th>Procedures</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                  
+                </tbody>
+            </table>
+            <form id="userForm">
+                <input type="text" id="name" placeholder="User Name" required>
+                <input type="number" id="age" placeholder="User Age" required>
+                <input type="email" id="email" placeholder="User E-mail" required>
+
+                <button id="addUser">Add User</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        let userNameInput = document.getElementById("name");
+        let userAgeInput = document.getElementById("age");
+        let userEmailInput = document.getElementById("email");
+        let addButton =document.getElementById("addUser");
+
+        let inputslist = [];
+
+        let tableBody = document.getElementById("tableBody");
+
+
+        addButton.addEventListener('click' , function(event){
+
+            event.preventDefault();
+
+           let userName = userNameInput.value.trim();
+           let userEmail = userEmailInput.value.trim();
+           let userAge = Number(userAgeInput.value);
+
+           if(userName === "" || userEmail === "" || userAge === ""){
+            alert("you must write something!");
+
+                return;
+           }
+
+           else{
+            let inputs ={
+                name:userName,
+                age:userAge,
+                email:userEmail
+            }
+
+            inputslist.push(inputs);
+            console.log(inputslist);
+            displayData();
+           }
+
+           userNameInput.value ="";
+           userEmailInput.value="";
+           userAgeInput.value="";
+
+
+
+        });
+
+
+
+        function displayData(){
+
+            tableBody.innerHTML = '';
+
+            inputslist.forEach((inputs,index)=>{
+                let taskElement = document.createElement('tr');
+
+                taskElement.innerHTML = `
+                <td>${inputs.name}</td>
+                <td>${inputs.age}</td>
+                <td>${inputs.email}</td>
+                <td>
+                <button id="delete" onclick="deleteItem(${index})">Delete</button>
+                 </td>
+                `
+                tableBody.appendChild(taskElement);
+
+            })
+
+        }
+
+        function deleteItem(indexItem){
+
+             if(confirm("Are You Sure You Want To Delete This User?")){
+                inputslist.splice( indexItem , 1 );
+            displayData();
+             }
+
+        }
+
+    </script>
+</body>
+</html>

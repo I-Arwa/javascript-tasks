@@ -146,14 +146,15 @@
 
 
 
+
 function calculatePages(){
     let grandTotalPages = 0;
-
+// Loop through the object
 for (const categoryName in library){
     
     const booksIncategoryName = library[categoryName];
     let totalPages = booksIncategoryName.reduce((accumulator, book) => accumulator + book.pages,0);
-    grandTotalPages += totalPages;
+    grandTotalPages = grandTotalPages + totalPages;
 }
 
 return grandTotalPages;
