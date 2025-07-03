@@ -78,7 +78,7 @@
             border: none;
             cursor: pointer; 
             background-color: rgba(179, 65, 107, 0.859);
-     color: rgb(245, 239, 255);
+            color: rgb(245, 239, 255);
             }
             #edit{
                padding: 10px 20px; 
@@ -151,18 +151,14 @@
             let newName = prompt("Enter Product Name: ",products[indexItem].name);
             let newPrice = prompt("Enter Product Price: ",products[indexItem].price);
             let newDescription = prompt("Enter Product Description: ", products[indexItem].description);
-
-
-
             
+           
             // checking the value is not Null or undefined or ""
-
-
             if(newName && newName.trim()){
                  products[indexItem].name = newName.trim();
             }
 
-            if( newPrice && !isNaN(newPrice)){
+            if( newPrice  && !isNaN(newPrice)){
        
         products[indexItem].price = parseFloat(newPrice); 
        }
@@ -171,6 +167,7 @@
             if(newDescription && newDescription.trim()){
                 products[indexItem].description = newDescription.trim();
             }
+           
 
 
            displaydata();

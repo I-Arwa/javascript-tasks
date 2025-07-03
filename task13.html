@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+            
+             * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        
+        section {
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+            background-color: rgb(229, 217, 242); 
+            font-family: "Inter", sans-serif; 
+        }
+
+     
+        .container {
+            width: 90%; 
+            max-width: 500px; 
+            padding: 20px;
+            border-radius: 30px; 
+            box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+             background-color:rgb(245, 239, 255); 
+           
+        }
+        h1{
+             color:rgb(124, 69, 133); 
+              font-size: 30px;
+        }
+
+        .content{
+            margin: 20px;
+            background-color: rgb(238, 229, 252);
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content:hover{
+            box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433);
+             transform: translateY(-1px);
+        }
+        button{
+            margin: 0px 0px 0px 20px ;
+             padding: 8px 10px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer; 
+            background-color: rgb(124, 69, 133);
+            color: rgb(245, 239, 255);
+             transition: transform 0.3s ease;
+        }
+        p{
+            padding-bottom: 5px;
+            color: rgb(25, 0, 47);
+        }
+         button:hover{
+             transform: translateY(-3px);
+        }
+
+        </style>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <h1>Application presentation</h1>
+            <div class="content">
+                
+            </div>
+            <button id="show-btn">Show welcome message</button>
+        </div>
+    </section>
+    
+    <script>
+        let containerDiv = document.querySelector(".content");
+        let showBtn = document.getElementById("show-btn");
+
+        let details = {
+    name: "Arwa",
+    age: "21",
+    job: "Front-End Developer",
+    address: {
+        city: "Cairo",
+        zip: "3753450"
+    },
+    language: "Arabic",
+};
+
+let {
+    name,
+    age,
+    job,
+    address: {
+        city,
+        zip
+    },
+    language
+} = details;
+
+
+displaydata()
+
+function displaydata() {
+
+  
+   containerDiv.innerHTML =  `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Job:</strong> ${job}</p>
+        <p><strong>City:</strong> ${city}</p>
+        <p><strong>Zip Code:</strong> ${zip}</p>
+        <p><strong>Language:</strong> ${language}</p>
+    `;
+}
+
+
+
+showBtn.addEventListener('click',function(){
+
+    alert(`Hello ${name},Your Age is ${age} and You Work As ${job}`)
+
+});
+
+
+
+        
+    </script>
+</body>
+</html>

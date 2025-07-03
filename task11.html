@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+             * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        
+        section {
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden; 
+            background-color: rgb(229, 217, 242); 
+            font-family: "Inter", sans-serif; 
+        }
+
+     
+        .container {
+            width: 90%; 
+            max-width: 500px; 
+            padding: 20px;
+            border-radius: 30px; 
+            box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+             background-color:rgb(245, 239, 255); 
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+           align-items: center;
+        }
+        h1{
+             color:rgb(124, 69, 133); 
+              font-size: 30px;
+        }
+        #clock{
+            font-size: 25px;
+            font-weight: bold;
+             color: rgb(124, 69, 133);
+        }
+
+        button{
+            padding: 8px 10px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer; 
+            background-color: rgb(124, 69, 133);
+            color: rgb(245, 239, 255);
+             transition: transform 0.3s ease;
+        }
+        button:hover{
+             transform: translateY(-1px);
+        }
+
+        </style>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <h1>Interactive Clock</h1>
+
+            <div id="clock"></div>
+
+            <div class="buttons">
+                <button id="start-btn">Start The Clock</button>
+                <button id="stop-btn">Stop The Clock</button>
+                <button id="link-btn">Go to the link</button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+
+        let clock = document.getElementById("clock");
+        let startBtn = document.getElementById("start-btn");
+        let stopBtn = document.getElementById("stop-btn");
+        let linktBtn = document.getElementById("link-btn");
+
+         displayTime();
+        let intervalId = setInterval(displayTime, 1000);
+
+        function displayTime(){
+            let currentTime = new Date(); // Update currentTime every time this function is called
+            clock.innerHTML = currentTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+        }
+
+        startBtn.addEventListener('click', function(){
+           
+            clearInterval(intervalId);
+           
+            intervalId = setInterval(displayTime, 1000);
+        });
+
+        stopBtn.addEventListener('click', function(){
+           
+            clearInterval(intervalId);
+        });
+
+
+        linktBtn.addEventListener('click',function(){
+
+            let urlInput =prompt("Enter The Link You Want To Go To:");
+
+            if(urlInput && urlInput.trim()){
+      
+                if( urlInput.startsWith("http://") || urlInput.startsWith("https://")){
+                  window.open(urlInput);
+                  }
+                 else{
+                    window.open(`https://${urlInput}`)
+                     } 
+            }
+
+        });
+
+    </script>
+</body>
+</html>
