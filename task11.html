@@ -114,10 +114,10 @@
             if(urlInput && urlInput.trim()){
       
                 if( urlInput.startsWith("http://") || urlInput.startsWith("https://")){
-                    window.location.href = urlInput;
+                  window.open(urlInput);
                   }
                  else{
-                    window.location.href = `https://${urlInput}`
+                    window.open(`https://${urlInput}`)
                      } 
             }
 
