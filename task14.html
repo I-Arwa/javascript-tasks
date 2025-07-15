@@ -102,18 +102,13 @@
       let userscontainer = document.getElementById("users-li");
       let productsContainer = document.getElementById("products-content");
 
-      let users = new Set(["Osama","Ahmed","Ali"]);
-      
-      users.delete("Ali")
-      
-      users.add("Reda");
+      let users = new Set(["Osama","Ahmed","Reda"]);
 
-      let productMap = new Map()
+     let productMap = new Map([
+      ["Laptop", { price: 15000, quantity: 3 }],
+      ["Phone", { price: 8000, quantity: 5 }]
+     ]);
 
-      productMap.set("Laptop", { price: 15000, quantity: 3 })
-      productMap.set("Phone", { price: 8000, quantity: 5 })
-      
-       
 
       function displayUsers() {
       userscontainer.innerHTML = ""; 

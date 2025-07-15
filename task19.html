@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+           * {
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+
+            
+            section {
+              height: 100vh; 
+              display: flex; 
+              justify-content: center; 
+              align-items: center; 
+              overflow: hidden; 
+              background-color: rgb(229, 217, 242); 
+              font-family: "Inter", sans-serif; 
+            }
+
+            .container {
+              width: 90%; 
+              max-width: 960px;
+              padding: 30px;
+              border-radius: 30px; 
+              box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+             background-color:rgb(245, 239, 255);
+             display: flex;
+             flex-direction: column;
+            }
+             h1 {
+              margin-bottom: 20px;
+              color:rgb(124, 69, 133); 
+              font-size: 30px;
+            } 
+
+            #countdown{
+                background-color: rgb(231, 229, 229);
+                padding: 15px;
+                text-align: center;
+                  margin-bottom: 15px;
+            }
+            p{
+                color: rgb(56, 8, 63);
+                font-weight: bold;
+            }
+
+            button{
+                  padding: 10px 15px;
+              border-radius: 10px;
+              border: none;
+              background-color: rgb(124, 69, 133);
+              color: rgb(245, 239, 255);
+              font-weight: bold;
+              cursor: pointer;
+              
+            }
+            ul{
+              list-style: none;
+              margin-top: 20px;
+            }
+            li{
+              margin-bottom: 20px;
+              background-color: rgb(72, 28, 78);
+              color: whitesmoke;
+              font-weight: bold;
+              font-size: 20px;
+              padding: 10px;
+              border-radius: 10px;
+            }
+            
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <h1>Interactive experience</h1>
+            <div id="countdown">
+                <p>Click the button to start the countdown.</p>
+                
+            </div>
+            <button id="Start-btn">Start Countdown</button>
+        </div>
+    </section>
+    
+    <script>
+
+        let StartBtn = document.getElementById("Start-btn");
+        let countdownDisplay = document.getElementById("countdown");
+        let countDownDate = new Date ("Dec 31, 2025 23:59:59").getTime();
+
+        
+
+        function updateCountdown() {
+        // Get Date Now
+        let dateNow = new Date().getTime();
+        // find the date difference between now and the countDownDate
+        let diffDate = countDownDate - dateNow;
+
+        if (diffDate < 0) {
+            clearInterval(counter); // Stop the interval
+            countdownDisplay.innerHTML = `<p>🎉 Countdown Event: EXPIRED! 🎉</p>`;
+            StartBtn.disabled = false; // Re-enable button
+            StartBtn.textContent = 'Start Countdown';
+            StartBtn.style.opacity = '1';
+            return; // Exit the function
+        }
+
+        // Get Time Units
+        const days = Math.floor(diffDate / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diffDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffDate % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffDate % (1000 * 60)) / 1000);
+
+        
+        countdownDisplay.innerHTML = `
+            <p>Count Event countdown:</p>
+            <ul>
+                <li>
+                    <div>${days}</div>
+                    <div>Days</div>
+                </li>
+                <li>
+                    <div>${hours}</div>
+                    <div>Hours</div>
+                </li>
+                <li>
+                    <div>${minutes}</div>
+                    <div>Minutes</div>
+                </li>
+                <li>
+                    <div>${seconds}</div>
+                    <div>Seconds</div>
+                </li>
+            </ul>
+        `;
+    }
+
+
+
+
+
+ StartBtn.addEventListener('click',function(event){
+    StartBtn.disabled = true;
+    StartBtn.textContent = 'Counting down...';
+    StartBtn.style.opacity = '0.7';
+    updateCountdown();
+    let counter = setInterval(updateCountdown, 1000);
+  });
+
+
+
+
+
+
+    </script>
+</body>
+</html>
