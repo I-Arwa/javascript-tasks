@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+         * {
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+
+            
+            section {
+              height: 100vh; 
+              display: flex; 
+              flex-direction: column;
+              justify-content: center; 
+              align-items: center; 
+              overflow: hidden; 
+              background-color: rgb(229, 217, 242); 
+              font-family: "Inter", sans-serif; 
+            }
+
+            .container {
+              margin-bottom: 20px;
+              width: 90%; 
+              max-width: 960px;
+              padding: 30px;
+              border-radius: 30px; 
+              box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+             background-color:rgb(245, 239, 255);
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+            }
+             h1 {
+              margin-bottom: 20px;
+              color:rgb(124, 69, 133); 
+              font-size: 30px;
+            } 
+
+            form{
+               display: flex;
+              flex-direction: column;
+              row-gap: 10px;
+              width: 90%;
+               max-width: 660px;
+            }
+              input{
+              padding: 10px 15px;
+              border-radius: 10px;
+              border: 1px solid #ccc;
+              outline: none;
+            }
+            input:focus {
+            background-color: white;
+            border: 2px solid rgb(124, 69, 133); 
+        }
+         button{
+          padding: 10px 15px;
+              border-radius: 10px;
+              border: none;
+              background-color: rgb(124, 69, 133);
+              color: rgb(245, 239, 255);
+              cursor: pointer;
+        }
+
+        .container2{
+              width: 90%; 
+              max-width: 960px;
+              padding: 30px;
+              border-radius: 30px; 
+              box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+             background-color:rgb(245, 239, 255);
+             display: flex;
+             flex-direction: column;
+        }
+
+        #content{
+          background-color: rgb(213, 211, 211);
+                padding:25px;
+                border-radius: 10px;
+                line-height: 1.5;
+                font-size: 0.9rem;
+                white-space: pre;
+        }
+            
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <h1>Interactive Model</h1>
+
+            <form id="form">
+           
+            <input type="text" id="userName" placeholder="User Name : " required>   
+            <input type="email" id="userEmail" placeholder="User Email : " required>
+            <input type="number" id="userAge" placeholder="User Age : " required>
+            <button type="submit" id="submit-btn">Send data</button>
+          </form>
+
+          
+            
+        </div>
+
+        <div class="container2">
+          <h1>Application presentation</h1>
+          <div id="content"></div>
+        </div>
+    </section>
+
+    <script>
+      let userNameInput = document.getElementById("userName");
+      let userEmailInput = document.getElementById("userEmail");
+      let userAgeInput = document.getElementById("userAge");
+
+      let formSubmit = document.getElementById("form");
+
+      let contentDiv = document.getElementById("content");
+
+      formSubmit.addEventListener('submit',function(event){
+        event.preventDefault();
+        
+        name = userNameInput.value;
+        email = userEmailInput.value;
+        age = userAgeInput.value;
+
+        const jsonObject = {
+          userName : name ,
+          userEmail : email,
+          userAge:age
+        };
+
+        contentDiv.innerHTML = `${JSON.stringify(jsonObject,null,2)}`
+
+       
+      });
+    </script>
+</body>
+</html>
