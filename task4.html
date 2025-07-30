@@ -12,7 +12,6 @@
             box-sizing: border-box;
         }
 
-        
         section {
             height: 100vh; 
             display: flex; 
@@ -28,70 +27,77 @@
             max-width: 500px; 
             padding: 30px;
             border-radius: 30px; 
-           box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
-             background-color:rgb(245, 239, 255);
-          
+            box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
+            background-color:rgb(245, 239, 255);
         }
 
-         h1 {
+        h1 {
             margin-bottom: 20px;
-             color:rgb(124, 69, 133); 
+            color:rgb(124, 69, 133); 
             font-size: 30px;
         } 
          
         .list-head{
-          background-color: white;
-        border: 2px solid rgb(124, 69, 133); 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: 30px;
+            background-color: white;
+            border: 2px solid rgb(124, 69, 133); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 30px;
+            
+            flex-wrap: wrap; 
+            padding-right: 0; 
         }
 
         input{
-            flex: 1;
+            flex: 1; 
             border: none;
             outline: none;
             background-color: transparent;
             font-weight: 14px;
             font-size: 15px;
             padding: 10px;
+            min-width: 120px; 
         }
 
         #addBtn{
-           border: none;
-           outline: none;
-           padding: 16px 50px;
-           font-size: 16px;
-           cursor: pointer;
-           border-radius: 40px;
-           background-color: rgb(124, 69, 133);
-              color: rgb(245, 239, 255);
+            border: none;
+            outline: none;
+            padding: 16px 50px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 40px;
+            background-color: rgb(124, 69, 133);
+            color: rgb(245, 239, 255);
+          
+            margin: 5px; 
+            min-width: fit-content; 
         }
+        
         .list-container{
-           margin-top: 20px;
+            margin-top: 20px;
         }
         .list{
-          display: flex;
-          column-gap: 10px;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 15px;
-          padding: 10px;
-          border-radius: 20px;
-           background-color: rgba(204, 176, 211, 0.259);
+            display: flex;
+            column-gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: rgba(204, 176, 211, 0.259);
         }
         p{
             flex: 1;
             font-weight:bold;
             font-size: 18px;
-          color: rgb(124, 69, 133);
+            color: rgb(124, 69, 133);
+            word-break: break-word; 
         }
         .deletBtn{
             cursor: pointer;
-           color: rgb(124, 69, 133);
+            color: rgb(124, 69, 133);
         }
-
 
      </style>
 </head>
