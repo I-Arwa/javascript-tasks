@@ -6,88 +6,143 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-         * {
-              padding: 0;
-              margin: 0;
-              box-sizing: border-box;
-            }
+        * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-            
-            section {
-              height: 100vh; 
-              display: flex; 
-              flex-direction: column;
-              justify-content: center; 
-              align-items: center; 
-              overflow: hidden; 
-              background-color: rgb(229, 217, 242); 
-              font-family: "Inter", sans-serif; 
-            }
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgb(229, 217, 242);
+  font-family: "Inter", sans-serif;
+}
 
-            .container {
-              margin-bottom: 20px;
-              width: 90%; 
-              max-width: 960px;
-              padding: 30px;
-              border-radius: 30px; 
-              box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
-             background-color:rgb(245, 239, 255);
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-            }
-             h1 {
-              margin-bottom: 20px;
-              color:rgb(124, 69, 133); 
-              font-size: 30px;
-            } 
+.container {
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 960px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433);
+  background-color: rgb(245, 239, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
 
-            form{
-               display: flex;
-              flex-direction: column;
-              row-gap: 10px;
-              width: 90%;
-               max-width: 660px;
-            }
-              input{
-              padding: 10px 15px;
-              border-radius: 10px;
-              border: 1px solid #ccc;
-              outline: none;
-            }
-            input:focus {
-            background-color: white;
-            border: 2px solid rgb(124, 69, 133); 
-        }
-         button{
-          padding: 10px 15px;
-              border-radius: 10px;
-              border: none;
-              background-color: rgb(124, 69, 133);
-              color: rgb(245, 239, 255);
-              cursor: pointer;
-        }
+h1 {
+  margin-bottom: 20px;
+  color: rgb(124, 69, 133);
+  font-size: 30px;
+}
 
-        .container2{
-              width: 90%; 
-              max-width: 960px;
-              padding: 30px;
-              border-radius: 30px; 
-              box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433); 
-             background-color:rgb(245, 239, 255);
-             display: flex;
-             flex-direction: column;
-        }
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 90%;
+  max-width: 660px;
+}
 
-        #content{
-          background-color: rgb(213, 211, 211);
-                padding:25px;
-                border-radius: 10px;
-                line-height: 1.5;
-                font-size: 0.9rem;
-                white-space: pre;
-        }
-            
+input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+}
+
+input:focus {
+  background-color: white;
+  border: 2px solid rgb(124, 69, 133);
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(124, 69, 133);
+  color: rgb(245, 239, 255);
+  cursor: pointer;
+  width: 100%;
+}
+
+.container2 {
+  width: 90%;
+  max-width: 960px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 3px 3px 5px 0px rgba(53, 53, 53, 0.433);
+  background-color: rgb(245, 239, 255);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#content {
+  background-color: rgb(213, 211, 211);
+  padding: 25px;
+  border-radius: 10px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .container,
+  .container2 {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  #content {
+    font-size: 0.85rem;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .container2 {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  input,
+  button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  #content {
+    font-size: 0.8rem;
+    padding: 15px;
+  }
+}
+
+
     </style>
 </head>
 <body>
